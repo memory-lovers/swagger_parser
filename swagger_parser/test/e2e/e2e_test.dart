@@ -274,5 +274,18 @@ void main() {
         schemaFileName: 'wrapping_collections.3.0.json',
       );
     });
+
+    test('duplicate_component_class_name', () async {
+      await e2eTest(
+        'duplicate_component_class_name',
+        (outputDirectory, schemaPath) => SWPConfig(
+          outputDirectory: outputDirectory,
+          schemaPath: schemaPath,
+          jsonSerializer: JsonSerializer.freezed,
+          putClientsInFolder: true,
+        ),
+        schemaFileName: 'openapi.json',
+      );
+    });
   });
 }
