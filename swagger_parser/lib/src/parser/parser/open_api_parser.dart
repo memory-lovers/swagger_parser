@@ -737,6 +737,7 @@ class OpenApiParser {
         final (findParameters, findImports) = _findParametersAndImports(
           map,
           additionalName: key,
+          parentTypeName: key.toPascal,
         );
         parameters.addAll(findParameters);
         imports.addAll(findImports);
@@ -970,6 +971,10 @@ class OpenApiParser {
 
       for (final replacementRule in config.replacementRules) {
         newName = replacementRule.apply(newName)!;
+      }
+
+      if (additionalName == null && parentTypeName != null) {
+        newName = '$parentTypeName${newName.toPascal}';
       }
 
       final items = protectEnumItemsNames(
