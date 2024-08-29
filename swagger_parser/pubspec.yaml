@@ -9,7 +9,7 @@ topics:
   - api
   - rest
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   args: ^2.5.0
@@ -19,5 +19,5 @@ dependencies:
   yaml: ^3.1.2
 
 dev_dependencies:
-  carapacik_lints: ^1.8.1
+  carapacik_lints: ^1.7.0
   test: ^1.25.2
