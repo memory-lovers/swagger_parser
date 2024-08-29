@@ -10,9 +10,9 @@ part 'user_info_dto.g.dart';
 @Freezed()
 class UserInfoDto with _$UserInfoDto {
   const factory UserInfoDto({
-    required String email,
-    required String name,
-    required String phone,
+    String? email,
+    String? name,
+    String? phone,
   }) = _UserInfoDto;
 
   factory UserInfoDto.fromJson(Map<String, Object?> json) =>
