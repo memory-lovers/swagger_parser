@@ -10,8 +10,8 @@ part 'get_users_uid_data3_response_data_data.g.dart';
 @Freezed()
 class GetUsersUidData3ResponseDataData with _$GetUsersUidData3ResponseDataData {
   const factory GetUsersUidData3ResponseDataData({
-    required String id,
-    required String name,
+    String? id,
+    String? name,
   }) = _GetUsersUidData3ResponseDataData;
 
   factory GetUsersUidData3ResponseDataData.fromJson(
