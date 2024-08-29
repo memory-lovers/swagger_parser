@@ -15,12 +15,12 @@ part 'nest_dto.g.dart';
 @Freezed()
 class NestDto with _$NestDto {
   const factory NestDto({
-    required String name,
-    required NestDtoMode mode,
-    required NestDtoData data,
-    required List<String> list,
-    required List<NestDtoEnumList> enumList,
-    required List<NestDtoObjList> objList,
+    String? name,
+    NestDtoMode? mode,
+    NestDtoData? data,
+    List<String>? list,
+    List<NestDtoEnumList>? enumList,
+    List<NestDtoObjList>? objList,
   }) = _NestDto;
 
   factory NestDto.fromJson(Map<String, Object?> json) =>

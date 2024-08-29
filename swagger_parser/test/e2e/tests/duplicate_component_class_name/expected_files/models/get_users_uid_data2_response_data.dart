@@ -14,12 +14,12 @@ part 'get_users_uid_data2_response_data.g.dart';
 @Freezed()
 class GetUsersUidData2ResponseData with _$GetUsersUidData2ResponseData {
   const factory GetUsersUidData2ResponseData({
-    required String id,
-    required String name,
-    required GetUsersUidData2ResponseDataMode mode,
-    required List<String> list,
-    required List<GetUsersUidData2ResponseDataEnumList> enumList,
-    required List<GetUsersUidData2ResponseDataObjList> objList,
+    String? id,
+    String? name,
+    GetUsersUidData2ResponseDataMode? mode,
+    List<String>? list,
+    List<GetUsersUidData2ResponseDataEnumList>? enumList,
+    List<GetUsersUidData2ResponseDataObjList>? objList,
   }) = _GetUsersUidData2ResponseData;
 
   factory GetUsersUidData2ResponseData.fromJson(Map<String, Object?> json) =>

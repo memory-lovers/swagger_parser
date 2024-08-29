@@ -10,8 +10,8 @@ part 'nest_dto_obj_list.g.dart';
 @Freezed()
 class NestDtoObjList with _$NestDtoObjList {
   const factory NestDtoObjList({
-    required String id,
-    required String name,
+    String? id,
+    String? name,
   }) = _NestDtoObjList;
 
   factory NestDtoObjList.fromJson(Map<String, Object?> json) =>

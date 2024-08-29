@@ -12,8 +12,8 @@ part 'nest_dto_data.g.dart';
 @Freezed()
 class NestDtoData with _$NestDtoData {
   const factory NestDtoData({
-    required String name,
-    required NestDtoDataMode mode,
+    String? name,
+    NestDtoDataMode? mode,
   }) = _NestDtoData;
 
   factory NestDtoData.fromJson(Map<String, Object?> json) =>

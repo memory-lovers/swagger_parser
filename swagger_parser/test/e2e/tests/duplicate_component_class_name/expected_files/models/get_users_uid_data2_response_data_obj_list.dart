@@ -11,8 +11,8 @@ part 'get_users_uid_data2_response_data_obj_list.g.dart';
 class GetUsersUidData2ResponseDataObjList
     with _$GetUsersUidData2ResponseDataObjList {
   const factory GetUsersUidData2ResponseDataObjList({
-    required String id,
-    required String name,
+    String? id,
+    String? name,
   }) = _GetUsersUidData2ResponseDataObjList;
 
   factory GetUsersUidData2ResponseDataObjList.fromJson(

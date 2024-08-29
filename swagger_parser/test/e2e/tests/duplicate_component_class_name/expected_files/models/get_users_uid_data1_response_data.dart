@@ -10,8 +10,8 @@ part 'get_users_uid_data1_response_data.g.dart';
 @Freezed()
 class GetUsersUidData1ResponseData with _$GetUsersUidData1ResponseData {
   const factory GetUsersUidData1ResponseData({
-    required String id,
-    required String name,
+    String? id,
+    String? name,
   }) = _GetUsersUidData1ResponseData;
 
   factory GetUsersUidData1ResponseData.fromJson(Map<String, Object?> json) =>
