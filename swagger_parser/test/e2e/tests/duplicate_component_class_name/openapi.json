@@ -71,6 +71,36 @@
                             "ok",
                             "ng"
                           ]
+                        },
+                        "list": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "enumList": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "first",
+                              "second"
+                            ]
+                          }
+                        },
+                        "objList": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -209,6 +239,36 @@
                   "ok",
                   "ng"
                 ]
+              }
+            }
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "enumList": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "first",
+                "second"
+              ]
+            }
+          },
+          "objList": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
               }
             }
           }
