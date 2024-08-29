@@ -883,7 +883,8 @@ class OpenApiParser {
       final (:type, :import) = _findType(
         arrayItems,
         name: name,
-        additionalName: name,
+        additionalName: parentTypeName,
+        parentTypeName: parentTypeName,
         root: false,
         isRequired: isRequired,
       );
