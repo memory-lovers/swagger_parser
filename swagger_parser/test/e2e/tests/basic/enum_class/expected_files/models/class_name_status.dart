@@ -5,7 +5,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 @JsonEnum()
-enum StatusStatus {
+enum ClassNameStatus {
   @JsonValue('available')
   available('available'),
   @JsonValue('pending')
@@ -16,9 +16,9 @@ enum StatusStatus {
   /// Default value for all unparsed values, allows backward compatibility when adding new values on the backend.
   $unknown(null);
 
-  const StatusStatus(this.json);
+  const ClassNameStatus(this.json);
 
-  factory StatusStatus.fromJson(String json) => values.firstWhere(
+  factory ClassNameStatus.fromJson(String json) => values.firstWhere(
         (e) => e.json == json,
         orElse: () => $unknown,
       );
