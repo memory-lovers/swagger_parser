@@ -4,6 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'get_users_uid_data4_response_data_mode.dart';
 import 'get_users_uid_data4_response_data_data.dart';
 
 part 'get_users_uid_data4_response_data.freezed.dart';
@@ -14,6 +15,7 @@ class GetUsersUidData4ResponseData with _$GetUsersUidData4ResponseData {
   const factory GetUsersUidData4ResponseData({
     required String id,
     required String name,
+    required GetUsersUidData4ResponseDataMode mode,
     required GetUsersUidData4ResponseDataData data,
   }) = _GetUsersUidData4ResponseData;
 
