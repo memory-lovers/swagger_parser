@@ -13,7 +13,7 @@ part 'class_name.g.dart';
 class ClassName with _$ClassName {
   const factory ClassName({
     /// Status values that need to be considered for filter
-    required List<ClassNameStatus> status,
+    List<ClassNameStatus>? status,
   }) = _ClassName;
 
   factory ClassName.fromJson(Map<String, Object?> json) =>

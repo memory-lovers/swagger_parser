@@ -11,7 +11,7 @@ part 'example.g.dart';
 class Example with _$Example {
   const factory Example({
     /// data
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
   }) = _Example;
 
   factory Example.fromJson(Map<String, Object?> json) =>
