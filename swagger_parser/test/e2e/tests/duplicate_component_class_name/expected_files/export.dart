@@ -6,6 +6,7 @@
 export 'clients/client_client.dart';
 // Data classes
 export 'models/user_info_dto.dart';
+export 'models/nest_dto.dart';
 export 'models/get_users_uid_data1_response_data.dart';
 export 'models/get_users_uid_data1_response.dart';
 export 'models/get_users_uid_data2_response_data.dart';
@@ -16,5 +17,11 @@ export 'models/get_users_uid_data3_response.dart';
 export 'models/get_users_uid_data4_response_data_data.dart';
 export 'models/get_users_uid_data4_response_data.dart';
 export 'models/get_users_uid_data4_response.dart';
+export 'models/nest_dto_data.dart';
+export 'models/get_users_uid_data2_response_data_mode.dart';
+export 'models/get_users_uid_data3_response_data_mode.dart';
+export 'models/get_users_uid_data4_response_data_mode.dart';
+export 'models/nest_dto_mode.dart';
+export 'models/nest_dto_data_mode.dart';
 // Root client
 export 'rest_client.dart';
