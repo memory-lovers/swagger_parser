@@ -5,7 +5,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 @JsonEnum()
-enum P2EnumDto {
+enum Object1DtoP2EnumDto {
   @JsonValue('teV1st1')
   teV1st1('teV1st1'),
   @JsonValue('V1_test2')
@@ -16,9 +16,9 @@ enum P2EnumDto {
   /// Default value for all unparsed values, allows backward compatibility when adding new values on the backend.
   $unknown(null);
 
-  const P2EnumDto(this.json);
+  const Object1DtoP2EnumDto(this.json);
 
-  factory P2EnumDto.fromJson(String json) => values.firstWhere(
+  factory Object1DtoP2EnumDto.fromJson(String json) => values.firstWhere(
         (e) => e.json == json,
         orElse: () => $unknown,
       );

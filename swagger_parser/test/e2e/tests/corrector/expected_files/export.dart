@@ -19,6 +19,6 @@ export 'models/object0_dto.dart';
 export 'models/object1_dto_p1_class_dto.dart';
 export 'models/object1_dto.dart';
 export 'models/enum0_dto.dart';
-export 'models/p2_enum_dto.dart';
+export 'models/object1_dto_p2_enum_dto.dart';
 // Root client
 export 'rest_client.dart';
