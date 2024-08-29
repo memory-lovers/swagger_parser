@@ -665,6 +665,7 @@ class OpenApiParser {
   (List<UniversalType>, Set<String>) _findParametersAndImports(
     Map<String, dynamic> map, {
     String? additionalName,
+    String? parentTypeName,
   }) {
     final parameters = <UniversalType>[];
     final imports = <String>{};
@@ -686,6 +687,7 @@ class OpenApiParser {
           propertyValue,
           name: propertyName,
           additionalName: additionalName,
+          parentTypeName: parentTypeName,
           isRequired: isRequired || !isNullable,
         );
         parameters.add(typeWithImport.type);
@@ -872,6 +874,7 @@ class OpenApiParser {
     bool root = true,
     String? name,
     String? additionalName,
+    String? parentTypeName,
   }) {
     // Array
     if (map.containsKey(_typeConst) && map[_typeConst] == _arrayConst) {
@@ -1019,14 +1022,16 @@ class OpenApiParser {
         description: map[_descriptionConst]?.toString(),
       );
 
-      final (parameters, imports) = _findParametersAndImports(
-        map,
-      );
-
+      // decide type name
       var type = newName.toPascal;
 
       for (final replacementRule in config.replacementRules) {
         type = replacementRule.apply(type)!;
+      }
+
+      if (parentTypeName != null) {
+        // prepend parent type name
+        type = '$parentTypeName$type';
       }
 
       // Check for duplicate type names
@@ -1037,6 +1042,11 @@ class OpenApiParser {
       } else {
         _objectNamesCount[type] = 1;
       }
+
+      final (parameters, imports) = _findParametersAndImports(
+        map,
+        parentTypeName: type,
+      );
 
       if (_objectClasses.where((oc) => oc.name == type).isEmpty) {
         _objectClasses.add(
