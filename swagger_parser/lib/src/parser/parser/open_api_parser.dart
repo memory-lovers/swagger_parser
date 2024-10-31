@@ -199,7 +199,10 @@ class OpenApiParser {
 
     /// Parses query parameters (parameters and requestBody)
     /// into universal models for OpenApi v3
-    List<UniversalRequestType> parametersV3(Map<String, dynamic> map) {
+    List<UniversalRequestType> parametersV3(
+      Map<String, dynamic> map,
+      String? additionalName,
+    ) {
       if (!map.containsKey(_parametersConst) &&
           !map.containsKey(_requestBodyConst)) {
         return [];
@@ -238,20 +241,24 @@ class OpenApiParser {
           }
           final isRequired =
               parameter[_requiredConst]?.toString().toBool() ?? false;
+          final parameterType = HttpParameterType.values.firstWhereOrNull(
+            (e) => e.name == (parameter[_inConst].toString()),
+          );
           final typeWithImport = _findType(
             parameter[_schemaConst] != null
                 ? parameter[_schemaConst] as Map<String, dynamic>
                 : parameter,
             name: parameter[_nameConst].toString(),
             isRequired: isRequired,
+            additionalName: additionalName != null && parameterType != null
+                ? '$additionalName${parameterType.type}'
+                : null,
           );
 
           if (typeWithImport.import != null) {
             imports.add(typeWithImport.import!);
           }
-          final parameterType = HttpParameterType.values.firstWhereOrNull(
-            (e) => e.name == (parameter[_inConst].toString()),
-          );
+
           if (parameterType == null) {
             // ignore: avoid_print
             print(
@@ -559,7 +566,7 @@ class OpenApiParser {
       if (pathValueMap.containsKey(_parametersConst)) {
         final params = _apiInfo.schemaVersion == OAS.v2
             ? parametersV2(pathValue)
-            : parametersV3(pathValue);
+            : parametersV3(pathValue, null);
         globalParameters.addAll(params);
       }
 
@@ -573,13 +580,14 @@ class OpenApiParser {
 
         final requestPathResponses = (requestPath
             as Map<String, dynamic>)[_responsesConst] as Map<String, dynamic>;
-        final additionalName = '$key${path}Response'.toPascal;
+        final additionalNameResponse = '$key${path}Response'.toPascal;
         final returnType = _apiInfo.schemaVersion == OAS.v2
-            ? returnTypeV2(requestPathResponses, additionalName)
-            : returnTypeV3(requestPathResponses, additionalName);
+            ? returnTypeV2(requestPathResponses, additionalNameResponse)
+            : returnTypeV3(requestPathResponses, additionalNameResponse);
+        final additionalNameParameter = '$key${path}Parameter'.toPascal;
         final parameters = _apiInfo.schemaVersion == OAS.v2
             ? parametersV2(requestPath)
-            : parametersV3(requestPath);
+            : parametersV3(requestPath, additionalNameParameter);
 
         // Add global parameters that have not been overridden by local parameters
         // defined at the request level.
@@ -883,7 +891,7 @@ class OpenApiParser {
       final (:type, :import) = _findType(
         arrayItems,
         name: name,
-        additionalName: parentTypeName,
+        additionalName: parentTypeName ?? additionalName,
         parentTypeName: parentTypeName,
         root: false,
         isRequired: isRequired,
