@@ -5,9 +5,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../models/get_test1_query_enum_single.dart';
-import '../models/get_test1_query_enum_array.dart';
 import '../models/enum_status.dart';
+import '../models/get_test1_parameter_query_enum_array.dart';
+import '../models/get_test1_parameter_query_enum_single.dart';
 
 part 'client_client.g.dart';
 
@@ -17,8 +17,8 @@ abstract class ClientClient {
 
   @GET('/test1')
   Future<String> test({
-    @Query('enum_single') GetTest1QueryEnumSingle? enumSingle,
-    @Query('enum_array') List<GetTest1QueryEnumArray>? enumArray,
+    @Query('enum_single') GetTest1ParameterQueryEnumSingle? enumSingle,
+    @Query('enum_array') List<GetTest1ParameterQueryEnumArray>? enumArray,
     @Query('enum_single_ref') EnumStatus? enumSingleRef,
     @Query('enum_array_ref') List<EnumStatus>? enumArrayRef,
   });

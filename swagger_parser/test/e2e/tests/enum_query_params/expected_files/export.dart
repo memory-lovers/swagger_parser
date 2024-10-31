@@ -6,7 +6,7 @@
 export 'clients/client_client.dart';
 // Data classes
 export 'models/enum_status.dart';
-export 'models/get_test1_query_enum_single.dart';
-export 'models/get_test1_query_enum_array.dart';
+export 'models/get_test1_parameter_query_enum_single.dart';
+export 'models/get_test1_parameter_query_enum_array.dart';
 // Root client
 export 'rest_client.dart';

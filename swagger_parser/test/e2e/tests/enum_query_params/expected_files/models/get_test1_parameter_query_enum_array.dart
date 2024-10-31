@@ -5,22 +5,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 @JsonEnum()
-enum GetTest1QueryEnumArray {
+enum GetTest1ParameterQueryEnumArray {
   @JsonValue('apple')
   apple('apple'),
   @JsonValue('banana')
   banana('banana'),
   @JsonValue('carrot')
   carrot('carrot'),
+
   /// Default value for all unparsed values, allows backward compatibility when adding new values on the backend.
   $unknown(null);
 
-  const GetTest1QueryEnumArray(this.json);
+  const GetTest1ParameterQueryEnumArray(this.json);
 
-  factory GetTest1QueryEnumArray.fromJson([string, null] json) => values.firstWhere(
+  factory GetTest1ParameterQueryEnumArray.fromJson(String json) =>
+      values.firstWhere(
         (e) => e.json == json,
         orElse: () => $unknown,
       );
 
-  final [string, null]? json;
+  final String? json;
 }
