@@ -287,5 +287,18 @@ void main() {
         schemaFileName: 'openapi.json',
       );
     });
+
+    test('enum_query_params', () async {
+      await e2eTest(
+        'enum_query_params',
+        (outputDirectory, schemaPath) => SWPConfig(
+          outputDirectory: outputDirectory,
+          schemaPath: schemaPath,
+          jsonSerializer: JsonSerializer.freezed,
+          putClientsInFolder: true,
+        ),
+        schemaFileName: 'openapi.json',
+      );
+    });
   });
 }

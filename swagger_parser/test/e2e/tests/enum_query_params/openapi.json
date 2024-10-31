@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.1",
+  "paths": {
+    "/test1": {
+      "get": {
+        "operationId": "test",
+        "parameters": [
+          {
+            "name": "enum_single",
+            "in": "query",
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "apple",
+                "banana",
+                "carrot"
+              ]
+            }
+          },
+          {
+            "name": "enum_array",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "apple",
+                  "banana",
+                  "carrot"
+                ]
+              }
+            }
+          },
+          {
+            "name": "enum_single_ref",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EnumStatus"
+            }
+          },
+          {
+            "name": "enum_array_ref",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/EnumStatus"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EnumStatus": {
+        "type": "string",
+        "enum": [
+          "apple",
+          "banana",
+          "carrot"
+        ]
+      }
+    }
+  }
+}
