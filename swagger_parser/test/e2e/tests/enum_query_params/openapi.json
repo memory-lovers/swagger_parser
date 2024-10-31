@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "paths": {
     "/test1": {
       "get": {
@@ -10,6 +10,21 @@
             "in": "query",
             "schema": {
               "type": "string",
+              "enum": [
+                "apple",
+                "banana",
+                "carrot"
+              ]
+            }
+          },
+          {
+            "name": "enum_single_mix",
+            "in": "query",
+            "schema": {
+              "type": [
+                "string",
+                "null"
+              ],
               "enum": [
                 "apple",
                 "banana",

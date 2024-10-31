@@ -989,11 +989,14 @@ class OpenApiParser {
       final items = protectEnumItemsNames(
         (map[_enumConst] as List).map((e) => '$e'),
       );
+      final type = map[_typeConst] is List
+          ? (map[_typeConst] as List).elementAt(0)
+          : map[_typeConst];
 
       final enumClass = _getUniqueEnumClass(
         name: newName,
         items: items,
-        type: map[_typeConst].toString(),
+        type: type.toString(),
         defaultValue: protectDefaultValue(map[_defaultConst], isEnum: true),
         description: description,
       );
@@ -1009,7 +1012,7 @@ class OpenApiParser {
           jsonKey: name,
           defaultValue: protectDefaultValue(map[_defaultConst]),
           isRequired: isRequired,
-          enumType: map[_typeConst]?.toString(),
+          enumType: type?.toString(),
         ),
         import: enumClass.name,
       );
