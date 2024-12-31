@@ -5,11 +5,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'class_with_nullable_types_p3.dart';
+import 'class_with_nullable_types_p3_all_of.dart';
+import 'class_with_nullable_types_p3_any_of.dart';
+import 'class_with_nullable_types_p3_list.dart';
+import 'class_with_nullable_types_p3_one_of.dart';
 import 'class_with_nullable_types_p3n.dart';
-import 'object1.dart';
-import 'object2.dart';
-import 'object3.dart';
-import 'object4.dart';
 
 part 'class_with_nullable_types.freezed.dart';
 part 'class_with_nullable_types.g.dart';
@@ -28,16 +28,16 @@ class ClassWithNullableTypes with _$ClassWithNullableTypes {
     @JsonKey(name: 'p3_n') ClassWithNullableTypesP3n? p3N,
     @JsonKey(name: 'p1_list') String? p1List,
     @JsonKey(name: 'p2_list') List<String?>? p2List,
-    @JsonKey(name: 'p3_list') Object1? p3List,
+    @JsonKey(name: 'p3_list') ClassWithNullableTypesP3List? p3List,
     @JsonKey(name: 'p1_anyOf') String? p1AnyOf,
     @JsonKey(name: 'p2_anyOf') List<String?>? p2AnyOf,
-    @JsonKey(name: 'p3_anyOf') Object2? p3AnyOf,
+    @JsonKey(name: 'p3_anyOf') ClassWithNullableTypesP3AnyOf? p3AnyOf,
     @JsonKey(name: 'p1_oneOf') String? p1OneOf,
     @JsonKey(name: 'p2_oneOf') List<String?>? p2OneOf,
-    @JsonKey(name: 'p3_oneOf') Object3? p3OneOf,
+    @JsonKey(name: 'p3_oneOf') ClassWithNullableTypesP3OneOf? p3OneOf,
     @JsonKey(name: 'p1_allOf') String? p1AllOf,
     @JsonKey(name: 'p2_allOf') List<String?>? p2AllOf,
-    @JsonKey(name: 'p3_allOf') Object4? p3AllOf,
+    @JsonKey(name: 'p3_allOf') ClassWithNullableTypesP3AllOf? p3AllOf,
   }) = _ClassWithNullableTypes;
 
   factory ClassWithNullableTypes.fromJson(Map<String, Object?> json) =>

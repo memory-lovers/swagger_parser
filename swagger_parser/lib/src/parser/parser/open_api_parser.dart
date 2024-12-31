@@ -1143,11 +1143,13 @@ class OpenApiParser {
                 ..remove(_typeConst);
 
               nullableItem.addAll(nMap);
-
               final (:type, :import) = _findType(
+                name: name,
                 nullableItem,
                 root: root,
                 isRequired: false,
+                additionalName: additionalName,
+                parentTypeName: parentTypeName ?? additionalName,
               );
               ofImport = import;
               if (type.wrappingCollections.isEmpty) {

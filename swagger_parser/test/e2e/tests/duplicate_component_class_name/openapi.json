@@ -211,6 +211,21 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "enumNullableAnyOf": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "apple",
+                  "banana",
+                  "carrot"
+                ]
+              }
+            ]
           }
         }
       },

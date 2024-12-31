@@ -5,7 +5,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../models/object0.dart';
+import '../models/get_api_v1_category_parameter_query_enum_class.dart';
 
 part 'api_client.g.dart';
 
@@ -16,6 +16,7 @@ abstract class ApiClient {
   /// [enumClass] - description
   @GET('/api/v1/category/')
   Future<void> apiV1CategoryList({
-    @Query('enum_class') required List<Object0>? enumClass,
+    @Query('enum_class')
+    required List<GetApiV1CategoryParameterQueryEnumClass>? enumClass,
   });
 }
